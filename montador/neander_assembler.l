@@ -25,6 +25,10 @@
 ^AND {return AND;}
 ^OR {return OR;}
 ^NOT {return NOT;}
+^JMP {return JMP;}
+^JN {return JN;}
+^JZ {return JZ;}
+^NOP {return NOP;}
 ^HLT {return HLT;}
 [0-9A-F]+ {return DATA;}
 <<EOF>> {return X;}
@@ -111,6 +115,22 @@ int main(int argc, char *argv[]){
 
 			case NOT:
 				bufferWrite(buffer, NOT);
+			break;
+
+			case JMP:
+				bufferWrite(buffer, JMP);
+			break;
+
+			case JN:
+				bufferWrite(buffer, JN);
+			break;
+
+			case JZ:
+				bufferWrite(buffer, JZ);
+			break;
+
+			case NOP:
+				bufferWrite(buffer, NOP);
 			break;
 
 			case HLT:
